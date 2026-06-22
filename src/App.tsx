@@ -33,6 +33,7 @@ export default function App() {
   // Navigation & Searches
   const [activeTab, setActiveTab] = useState<'catalog' | 'dashboard' | 'pricing' | 'guide'>('catalog');
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState('All');
   
   // Streaming Player State
@@ -243,18 +244,24 @@ export default function App() {
     return matchesSearch && matchesGenre;
   });
 
-  const filteredChannels = searchQuery.length > 0
-    ? SITE_CHANNELS.filter(ch =>
-        ch.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        ch.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+  const isSearchActive = searchFocused || searchQuery.length > 0;
+
+  const filteredChannels = isSearchActive
+    ? (searchQuery.length > 0
+        ? SITE_CHANNELS.filter(ch =>
+            ch.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            ch.category.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : SITE_CHANNELS)
     : [];
 
-  const filteredFilms = searchQuery.length > 0
-    ? SITE_FILMS.filter(f =>
-        f.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        f.genre.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+  const filteredFilms = isSearchActive
+    ? (searchQuery.length > 0
+        ? SITE_FILMS.filter(f =>
+            f.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            f.genre.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : SITE_FILMS)
     : [];
 
   const featuredMedia = MEDIA_ITEMS.find(item => item.isFeatured) || MEDIA_ITEMS[0];
@@ -275,6 +282,8 @@ export default function App() {
         setActiveTab={setActiveTab}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        onSearchFocus={() => setSearchFocused(true)}
+        onSearchBlur={() => setSearchFocused(false)}
         onOpenAddPlaylist={() => setShowPlaylistPortal(true)}
         subscriptionCount={subscriptions.length}
       />
@@ -295,8 +304,8 @@ export default function App() {
         {activeTab === 'catalog' && (
           <div className="space-y-16">
             
-            {/* If there's NO active search query, show premium landing sections */}
-            {searchQuery === '' && selectedGenre === 'All' ? (
+            {/* If there's NO active search, show premium landing sections */}
+            {!isSearchActive && selectedGenre === 'All' ? (
               <>
                 {/* A. REBRANDED PREMIUM HERO SECTION (Screenshot 22.50.38) */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4" id="premium-hero-hub">
