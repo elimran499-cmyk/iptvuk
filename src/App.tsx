@@ -185,15 +185,54 @@ export default function App() {
     }
   };
 
+  // All channels available on the site
+  const SITE_CHANNELS = [
+    { name: 'BBC One UK HD', category: 'UK TV', badge: 'HD' },
+    { name: 'BBC Two UK', category: 'UK TV', badge: 'HD' },
+    { name: 'ITV1 HD', category: 'UK TV', badge: 'HD' },
+    { name: 'Channel 4 HD', category: 'UK TV', badge: 'HD' },
+    { name: 'Sky Sports Main Event', category: 'Sports', badge: '4K' },
+    { name: 'Sky Sports Premier League', category: 'Sports', badge: '4K' },
+    { name: 'BT Sport 1', category: 'Sports', badge: 'HD' },
+    { name: 'TNT Sports', category: 'Sports', badge: 'HD' },
+    { name: 'beIN Sports', category: 'Sports', badge: 'HD' },
+    { name: 'Eurosport 1', category: 'Sports', badge: 'HD' },
+    { name: 'Sportitalia HD', category: 'Sports', badge: 'HD' },
+    { name: 'ESPN US Sports', category: 'Sports', badge: 'HD' },
+    { name: 'DAZN Sports', category: 'Sports', badge: 'HD' },
+    { name: 'Fox News', category: 'News', badge: 'HD' },
+    { name: 'CNN International', category: 'News', badge: 'HD' },
+    { name: 'NBC News', category: 'News', badge: 'HD' },
+    { name: 'Netflix Premium', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'Disney+ Cinema', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'Apple TV+', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'Prime Video 4K', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'HBO Max Gold', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'Paramount+', category: 'VIP Streaming', badge: 'VIP' },
+    { name: 'Showtime PPV', category: 'PPV', badge: 'PPV' },
+    { name: 'TNT Sports PPV', category: 'PPV', badge: 'PPV' },
+    { name: 'UFC Fight Pass', category: 'PPV', badge: 'PPV' },
+    { name: 'Sky Sport Box Office', category: 'PPV', badge: 'PPV' },
+    { name: 'Mediaset Infinity', category: 'Entertainment', badge: 'HD' },
+    { name: 'NOW Sport', category: 'Sports', badge: 'HD' },
+    { name: 'Discovery Channel', category: 'Entertainment', badge: '4K' },
+  ];
+
   // Filter media based on search query or selected genre
   const filteredMedia = MEDIA_ITEMS.filter(item => {
-    const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           item.genre.some(g => g.toLowerCase().includes(searchQuery.toLowerCase())) ||
                           item.description.toLowerCase().includes(searchQuery.toLowerCase());
-    
     const matchesGenre = selectedGenre === 'All' || item.genre.includes(selectedGenre);
     return matchesSearch && matchesGenre;
   });
+
+  const filteredChannels = searchQuery.length > 0
+    ? SITE_CHANNELS.filter(ch =>
+        ch.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        ch.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
 
   const featuredMedia = MEDIA_ITEMS.find(item => item.isFeatured) || MEDIA_ITEMS[0];
 
@@ -770,22 +809,41 @@ export default function App() {
 
                   <div className="flex items-center gap-2 text-xs text-[#C4B5FD]">
                     <SlidersHorizontal className="w-4 h-4 text-[#C4B5FD]" />
-                    <span>{filteredMedia.length} result{filteredMedia.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;</span>
+                    <span>{filteredChannels.length + filteredMedia.length} result{filteredChannels.length + filteredMedia.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;</span>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-white font-display font-semibold text-base flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                    <span>Results for &ldquo;{searchQuery}&rdquo;</span>
-                  </h3>
+                <div className="space-y-6">
 
-                  {filteredMedia.length === 0 ? (
-                    <div className="text-center p-12 bg-[#1a0533]/40 border border-purple-900/30 rounded-2xl">
-                      <h4 className="text-white font-display font-bold text-sm">No results found for &ldquo;{searchQuery}&rdquo;</h4>
-                      <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">Try searching for a channel name, film title, or genre.</p>
+                  {/* Channel results */}
+                  {filteredChannels.length > 0 && (
+                    <div className="space-y-3">
+                      <h3 className="text-white font-display font-bold text-sm uppercase tracking-wider flex items-center gap-2">
+                        <Tv className="w-4 h-4 text-yellow-400" />
+                        Channels ({filteredChannels.length})
+                      </h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                        {filteredChannels.map((ch, i) => (
+                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl p-3 flex flex-col gap-2">
+                            <div className="flex items-center justify-between">
+                              <span className={`text-[9px] font-display font-black uppercase px-2 py-0.5 rounded-full ${ch.badge === 'VIP' ? 'bg-yellow-400/20 text-yellow-400' : ch.badge === 'PPV' ? 'bg-red-500/20 text-red-400' : ch.badge === '4K' ? 'bg-purple-500/20 text-purple-300' : 'bg-slate-800 text-slate-400'}`}>{ch.badge}</span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                            </div>
+                            <p className="text-white font-display font-bold text-xs leading-tight">{ch.name}</p>
+                            <p className="text-[10px] text-slate-500 font-sans">{ch.category}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ) : (
+                  )}
+
+                  {/* Film results */}
+                  {filteredMedia.length > 0 && (
+                    <div className="space-y-3">
+                      <h3 className="text-white font-display font-bold text-sm uppercase tracking-wider flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                        Films & Series ({filteredMedia.length})
+                      </h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4" id="movies-catalog-grid">
                       {filteredMedia.map((item) => (
                         <div
@@ -840,7 +898,17 @@ export default function App() {
                         </div>
                       ))}
                     </div>
+                    </div>
                   )}
+
+                  {/* No results */}
+                  {filteredChannels.length === 0 && filteredMedia.length === 0 && (
+                    <div className="text-center p-12 bg-[#1a0533]/40 border border-purple-900/30 rounded-2xl">
+                      <h4 className="text-white font-display font-bold text-sm">No results found for &ldquo;{searchQuery}&rdquo;</h4>
+                      <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">Try searching for a channel name, film title, or genre.</p>
+                    </div>
+                  )}
+
                 </div>
               </div>
             )}
