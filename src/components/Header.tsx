@@ -83,7 +83,7 @@ export default function Header({
           </div>
           <input
             type="text"
-            placeholder="Search channels, VOD films or series series..."
+            placeholder="Search channels, films, series..."
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
