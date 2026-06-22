@@ -698,7 +698,7 @@ export default function App() {
                           const {whole,dec} = splitPrice(plan.price);
                           const discount = Math.round((1 - plan.price/plan.originalPrice)*100);
                           return (
-                            <div key={plan.id} className={`relative rounded-[28px] flex flex-col shadow-2xl overflow-hidden transition-all duration-300 h-full ${isVip ? 'bg-yellow-400' : 'bg-white'} text-slate-900 ${plan.featured ? 'ring-2 ring-purple-500/50 md:scale-105 z-10' : ''}`}>
+                            <div key={plan.id} id={`plan-${plan.id}-${pricingTier}-${selectedScreens}s`} className={`relative rounded-[28px] flex flex-col shadow-2xl overflow-hidden transition-all duration-300 h-full ${isVip ? 'bg-yellow-400' : 'bg-white'} text-slate-900 ${plan.featured ? 'ring-2 ring-purple-500/50 md:scale-105 z-10' : ''}`}>
                               {plan.featured && (
                                 <div className="absolute top-0 right-0 w-28 h-28 overflow-hidden rounded-tr-[28px] pointer-events-none z-20">
                                   <div className={`text-[9px] font-black py-2 w-[140px] absolute top-5 -right-9 rotate-45 uppercase tracking-[0.15em] text-center leading-tight ${isVip ? 'bg-purple-700 text-white' : 'bg-purple-600 text-white'}`}>
@@ -734,7 +734,7 @@ export default function App() {
                                   ))}
                                 </div>
                                 <a
-                                  href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\n📦 Plan: ${plan.label}\n⏱ Duration: ${plan.duration}\n📺 Screens: ${selectedScreens}\n💶 Price: €${plan.price.toFixed(2)}\n\n🔗 View plan: ${window.location.href}\n\nPlease confirm and send payment details. Thank you!`)}`}
+                                  href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nView plan: ${window.location.origin + window.location.pathname}#plan-${plan.id}-${pricingTier}-${selectedScreens}s\n\nPlease confirm and send payment details. Thank you!`)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
@@ -1245,6 +1245,7 @@ export default function App() {
                     return (
                       <div
                         key={plan.id}
+                        id={`plan-${plan.id}-${pricingTier}-${selectedScreens}s`}
                         className={`relative rounded-[28px] flex flex-col shadow-2xl overflow-hidden transition-all duration-300 h-full ${isVip ? 'bg-yellow-400 text-slate-900' : 'bg-white text-slate-900'} ${plan.featured ? 'ring-2 ring-purple-500/50 md:scale-105 z-10' : 'hover:-translate-y-1'}`}
                       >
                         {/* Corner ribbon */}
@@ -1291,7 +1292,7 @@ export default function App() {
 
                           {/* CTA */}
                           <a
-                            href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\n📦 Plan: ${plan.label}\n⏱ Duration: ${plan.duration}\n📺 Screens: ${selectedScreens}\n💶 Price: €${plan.price.toFixed(2)}\n\n🔗 View plan: ${window.location.href}\n\nPlease confirm and send payment details. Thank you!`)}`}
+                            href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nView plan: ${window.location.origin + window.location.pathname}#plan-${plan.id}-${pricingTier}-${selectedScreens}s\n\nPlease confirm and send payment details. Thank you!`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
