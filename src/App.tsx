@@ -1420,23 +1420,96 @@ export default function App() {
 
       </main>
 
-      {/* FOOTER BRUTAL COPY */}
-      <footer className="border-t border-purple-900/30 bg-[#0d0014]/80 py-8 px-4 lg:px-8 mt-12 text-slate-400 text-xs">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="space-y-1 text-center md:text-left">
-            <p className="font-display font-bold text-white tracking-wide text-sm flex items-center justify-center md:justify-start gap-1">
-              IPTV<span className="text-yellow-400 text-[10px] font-mono tracking-widest bg-purple-950/60 px-1.5 py-0.5 rounded border border-purple-800/40 uppercase">UK</span>
-            </p>
-            <p className="text-[10px]">Pristine 4K UHD encrypted IPTV streaming systems. Powered by AI Studio Sandbox.</p>
+      {/* FOOTER */}
+      <footer className="border-t border-purple-900/30 bg-[#0d0014] pt-12 pb-6 px-4 lg:px-8 mt-12 text-slate-400 text-xs">
+        <div className="max-w-7xl mx-auto space-y-10">
+
+          {/* Top row */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            {/* Brand */}
+            <div className="space-y-4 md:col-span-1">
+              <div className="flex items-center gap-2">
+                <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+                  <defs>
+                    <linearGradient id="footer-logo-bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#7C3AED"/>
+                      <stop offset="100%" stopColor="#EAB308"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="20" cy="20" r="20" fill="url(#footer-logo-bg)"/>
+                  <path d="M15 12L15 28L30 20Z" fill="white"/>
+                  <path d="M15 20L22 16L22 24Z" fill="url(#footer-logo-bg)" fillOpacity="0.6"/>
+                </svg>
+                <span className="font-display font-black text-white text-base">IPTV<span className="text-yellow-400">UK</span></span>
+              </div>
+              <p className="text-slate-500 text-xs leading-relaxed font-sans">Premium IPTV streaming with 85,000+ live channels and 200,000+ VOD titles in 4K Ultra HD.</p>
+              <a
+                href="https://wa.me/447449708976"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-display font-bold text-xs px-4 py-2 rounded-full transition-all hover:scale-105"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.12 1.528 5.845L.057 23.486a.75.75 0 0 0 .914.914l5.635-1.473A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.716 9.716 0 0 1-4.964-1.361l-.355-.211-3.683.963.982-3.588-.232-.37A9.716 9.716 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+                </svg>
+                WhatsApp Us
+              </a>
+            </div>
+
+            {/* Navigation */}
+            <div className="space-y-3">
+              <h6 className="font-display font-bold text-white text-xs uppercase tracking-widest">Navigation</h6>
+              <ul className="space-y-2 font-sans">
+                {[['Browse Shows', 'catalog'], ['Pricing & Plans', 'pricing'], ['Setup Guide', 'guide']].map(([label, tab]) => (
+                  <li key={tab}>
+                    <button onClick={() => setActiveTab(tab as 'catalog' | 'pricing' | 'guide')} className="text-slate-400 hover:text-yellow-400 transition-colors cursor-pointer font-sans text-xs">{label}</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Plans */}
+            <div className="space-y-3">
+              <h6 className="font-display font-bold text-white text-xs uppercase tracking-widest">Plans</h6>
+              <ul className="space-y-2 font-sans text-slate-400 text-xs">
+                <li>Standard — 3 Months from €24.99</li>
+                <li>Standard — 6 Months from €34.99</li>
+                <li>Standard — 12 Months from €69.99</li>
+                <li className="text-yellow-400 font-display font-bold">VIP — 12 + 3 Months FREE</li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="space-y-3">
+              <h6 className="font-display font-bold text-white text-xs uppercase tracking-widest">Contact</h6>
+              <ul className="space-y-2 font-sans text-xs">
+                <li className="flex items-center gap-2 text-slate-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  Support 24/7
+                </li>
+                <li>
+                  <a href="https://wa.me/447449708976" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 transition-colors">+44 7449 708976</a>
+                </li>
+                <li className="text-slate-400">Response within minutes</li>
+              </ul>
+            </div>
+
           </div>
 
-          <div className="flex gap-4 text-[11px] text-slate-400 font-mono">
-            <span className="flex items-center gap-1"><Wifi className="w-3.5 h-3.5 text-emerald-400 animate-pulse" /> Decryptor Node: 3000 Active</span>
-            <span>•</span>
-            <span>Security Status: 100% OK</span>
-            <span>•</span>
-            <span>All Channels Online</span>
+          {/* Bottom bar */}
+          <div className="border-t border-purple-900/30 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="font-sans text-slate-600 text-[10px]">© 2026 IPTV UK. All rights reserved.</p>
+            <div className="flex items-center gap-3 text-[10px] text-slate-600 font-sans">
+              <span className="flex items-center gap-1"><Wifi className="w-3 h-3 text-emerald-400 animate-pulse" /> All Channels Online</span>
+              <span>•</span>
+              <span>4K Ultra HD</span>
+              <span>•</span>
+              <span>Anti-Freeze Technology</span>
+            </div>
           </div>
+
         </div>
       </footer>
 
