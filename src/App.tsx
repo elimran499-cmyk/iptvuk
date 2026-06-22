@@ -218,6 +218,23 @@ export default function App() {
     { name: 'Discovery Channel', category: 'Entertainment', badge: '4K' },
   ];
 
+  const SITE_FILMS = [
+    { title: 'Black Mirror', year: 2025, duration: 'Season 7', genre: 'Sci-Fi' },
+    { title: 'Pressure', year: 2025, duration: '1h 52m', genre: 'Thriller' },
+    { title: 'The Odyssey', year: 2025, duration: '2h 46m', genre: 'Adventure' },
+    { title: 'The Amazing Digital Circus', year: 2024, duration: '1h 30m', genre: 'Animation' },
+    { title: 'Your Fault: London', year: 2025, duration: '2h 05m', genre: 'Romance' },
+    { title: 'How to Make a Killing', year: 2025, duration: '1h 45m', genre: 'Crime' },
+    { title: 'In the Grey', year: 2026, duration: '2h 08m', genre: 'Action' },
+    { title: 'Legends', year: 2026, duration: '6 Episodes', genre: 'Crime' },
+    { title: 'The Last House', year: 2026, duration: '1h 50m', genre: 'Sci-Fi' },
+    { title: "Clarkson's Farm", year: 2025, duration: 'Season 4', genre: 'Documentary' },
+    { title: 'Tip Toe', year: 2026, duration: 'Mini-Series', genre: 'Thriller' },
+    { title: 'Shelter', year: 2026, duration: '1h 47m', genre: 'Action' },
+    { title: 'The Witness', year: 2026, duration: 'Mini-Series', genre: 'Crime' },
+    { title: 'Half Man', year: 2026, duration: '6 Episodes', genre: 'Drama' },
+  ];
+
   // Filter media based on search query or selected genre
   const filteredMedia = MEDIA_ITEMS.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -231,6 +248,13 @@ export default function App() {
     ? SITE_CHANNELS.filter(ch =>
         ch.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         ch.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
+
+  const filteredFilms = searchQuery.length > 0
+    ? SITE_FILMS.filter(f =>
+        f.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        f.genre.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : [];
 
@@ -809,7 +833,7 @@ export default function App() {
 
                   <div className="flex items-center gap-2 text-xs text-[#C4B5FD]">
                     <SlidersHorizontal className="w-4 h-4 text-[#C4B5FD]" />
-                    <span>{filteredChannels.length + filteredMedia.length} result{filteredChannels.length + filteredMedia.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;</span>
+                    <span>{filteredChannels.length + filteredFilms.length} result{filteredChannels.length + filteredFilms.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;</span>
                   </div>
                 </div>
 
@@ -838,71 +862,29 @@ export default function App() {
                   )}
 
                   {/* Film results */}
-                  {filteredMedia.length > 0 && (
+                  {filteredFilms.length > 0 && (
                     <div className="space-y-3">
                       <h3 className="text-white font-display font-bold text-sm uppercase tracking-wider flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                        Films & Series ({filteredMedia.length})
+                        Films & Series ({filteredFilms.length})
                       </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4" id="movies-catalog-grid">
-                      {filteredMedia.map((item) => (
-                        <div
-                          key={item.id}
-                          onClick={() => setActiveMedia(item)}
-                          className="group bg-[#2A2325] border border-slate-800/80 hover:border-primary/40 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between"
-                          id={`vod-card-${item.id}`}
-                        >
-                          <div className="relative aspect-[2/3] bg-slate-900">
-                            <img
-                              src={item.posterUrl}
-                              alt={item.title}
-                              className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity"
-                              loading="lazy"
-                              referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-deep via-transparent to-transparent opacity-80" />
-                            
-                            <div className="absolute top-2.5 left-2.5 flex flex-col gap-1.5">
-                              <span className="bg-dark-deep/80 backdrop-blur-md text-[9px] font-mono font-bold text-primary border border-slate-800 px-1.5 py-0.5 rounded leading-none flex items-center gap-0.5">
-                                ★ {item.score}
-                              </span>
-                              <span className="bg-dark-deep/80 backdrop-blur-md text-[9px] font-mono text-slate-300 px-1.5 py-0.5 rounded leading-none w-max border border-slate-800/30">
-                                {item.rating}
-                              </span>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                        {filteredFilms.map((film, i) => (
+                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl p-3 flex flex-col gap-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[9px] font-display font-black uppercase px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">{film.genre}</span>
+                              <span className="text-[9px] text-slate-500 font-sans">{film.year}</span>
                             </div>
-
-                            <button
-                              onClick={(e) => handleToggleFavorite(item.id, e)}
-                              className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-dark-deep/80 backdrop-blur-md border border-slate-850 flex items-center justify-center text-slate-400 hover:text-rose-500 cursor-pointer z-10"
-                              title="Favorite"
-                            >
-                              <Heart className={`w-3.5 h-3.5 ${favorites.includes(item.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
-                            </button>
-
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/40 backdrop-blur-[1px]">
-                              <div className="w-10 h-10 rounded-full bg-primary text-slate-950 flex items-center justify-center shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform">
-                                <Play className="w-5 h-5 fill-slate-950 ml-0.5" />
-                              </div>
-                            </div>
+                            <p className="text-white font-display font-bold text-xs leading-tight">{film.title}</p>
+                            <p className="text-[10px] text-slate-500 font-sans">{film.duration}</p>
                           </div>
-
-                          <div className="p-3 space-y-1">
-                            <div className="flex items-center justify-between text-[10px] text-[#C4B5FD] font-mono">
-                              <span>{item.genre[0]} • {item.year}</span>
-                              <span className="text-slate-400">{item.duration}</span>
-                            </div>
-                            <h4 className="text-xs font-semibold text-white tracking-tight group-hover:text-primary transition-colors truncate leading-snug">
-                              {item.title}
-                            </h4>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
                     </div>
                   )}
 
                   {/* No results */}
-                  {filteredChannels.length === 0 && filteredMedia.length === 0 && (
+                  {filteredChannels.length === 0 && filteredFilms.length === 0 && (
                     <div className="text-center p-12 bg-[#1a0533]/40 border border-purple-900/30 rounded-2xl">
                       <h4 className="text-white font-display font-bold text-sm">No results found for &ldquo;{searchQuery}&rdquo;</h4>
                       <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">Try searching for a channel name, film title, or genre.</p>
