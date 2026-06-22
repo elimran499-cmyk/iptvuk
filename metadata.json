@@ -1,0 +1,6 @@
+{
+  "name": "Iptv oj",
+  "description": "A sleek, dark-themed IPTV service catalog with a user dashboard, subscriptions, devices guide, real-time-like player, and secure billing portal supporting Credit Cards, PayPal, and Crypto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
