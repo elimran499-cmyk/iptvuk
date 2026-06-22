@@ -6,6 +6,8 @@ interface HeaderProps {
   setActiveTab: (tab: 'catalog' | 'dashboard' | 'pricing' | 'guide') => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  onSearchFocus: () => void;
+  onSearchBlur: () => void;
   onOpenAddPlaylist: () => void;
   subscriptionCount: number;
 }
@@ -15,6 +17,8 @@ export default function Header({
   setActiveTab,
   searchQuery,
   setSearchQuery,
+  onSearchFocus,
+  onSearchBlur,
   onOpenAddPlaylist,
   subscriptionCount
 }: HeaderProps) {
@@ -89,6 +93,8 @@ export default function Header({
               setSearchQuery(e.target.value);
               if (activeTab !== 'catalog') setActiveTab('catalog');
             }}
+            onFocus={() => { onSearchFocus(); if (activeTab !== 'catalog') setActiveTab('catalog'); }}
+            onBlur={() => setTimeout(onSearchBlur, 200)}
             className="w-full text-slate-200 placeholder-slate-500 bg-slate-900/60 border border-slate-800 focus:border-cyan-500/50 rounded-xl py-2 pl-10 pr-4 text-xs font-sans outline-none focus:ring-2 focus:ring-cyan-500/10 transition-all"
             id="hdr-search-input"
           />
