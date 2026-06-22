@@ -770,20 +770,20 @@ export default function App() {
 
                   <div className="flex items-center gap-2 text-xs text-[#C4B5FD]">
                     <SlidersHorizontal className="w-4 h-4 text-[#C4B5FD]" />
-                    <span>Found {filteredMedia.length} matching premium titles on proxy search</span>
+                    <span>{filteredMedia.length} result{filteredMedia.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;</span>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-white font-display font-semibold text-base flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                    <span>Search Results & Exploration Catalogue</span>
+                    <span>Results for &ldquo;{searchQuery}&rdquo;</span>
                   </h3>
 
                   {filteredMedia.length === 0 ? (
-                    <div className="text-center p-12 bg-[#2A2325]/40 border border-slate-800 rounded-2xl">
-                      <h4 className="text-white font-display font-medium text-sm">No matching streaming titles found</h4>
-                      <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">Try refining your keyword query filters inside the top navigation search console.</p>
+                    <div className="text-center p-12 bg-[#1a0533]/40 border border-purple-900/30 rounded-2xl">
+                      <h4 className="text-white font-display font-bold text-sm">No results found for &ldquo;{searchQuery}&rdquo;</h4>
+                      <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">Try searching for a channel name, film title, or genre.</p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4" id="movies-catalog-grid">
