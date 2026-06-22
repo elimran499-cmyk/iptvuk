@@ -187,52 +187,51 @@ export default function App() {
 
   // All channels available on the site
   const SITE_CHANNELS = [
-    { name: 'BBC One UK HD', category: 'UK TV', badge: 'HD' },
-    { name: 'BBC Two UK', category: 'UK TV', badge: 'HD' },
-    { name: 'ITV1 HD', category: 'UK TV', badge: 'HD' },
-    { name: 'Channel 4 HD', category: 'UK TV', badge: 'HD' },
-    { name: 'Sky Sports Main Event', category: 'Sports', badge: '4K' },
-    { name: 'Sky Sports Premier League', category: 'Sports', badge: '4K' },
-    { name: 'BT Sport 1', category: 'Sports', badge: 'HD' },
-    { name: 'TNT Sports', category: 'Sports', badge: 'HD' },
-    { name: 'beIN Sports', category: 'Sports', badge: 'HD' },
-    { name: 'Eurosport 1', category: 'Sports', badge: 'HD' },
-    { name: 'Sportitalia HD', category: 'Sports', badge: 'HD' },
-    { name: 'ESPN US Sports', category: 'Sports', badge: 'HD' },
-    { name: 'DAZN Sports', category: 'Sports', badge: 'HD' },
-    { name: 'Fox News', category: 'News', badge: 'HD' },
-    { name: 'CNN International', category: 'News', badge: 'HD' },
-    { name: 'NBC News', category: 'News', badge: 'HD' },
-    { name: 'Netflix Premium', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'Disney+ Cinema', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'Apple TV+', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'Prime Video 4K', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'HBO Max Gold', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'Paramount+', category: 'VIP Streaming', badge: 'VIP' },
-    { name: 'Showtime PPV', category: 'PPV', badge: 'PPV' },
-    { name: 'TNT Sports PPV', category: 'PPV', badge: 'PPV' },
-    { name: 'UFC Fight Pass', category: 'PPV', badge: 'PPV' },
-    { name: 'Sky Sport Box Office', category: 'PPV', badge: 'PPV' },
-    { name: 'Mediaset Infinity', category: 'Entertainment', badge: 'HD' },
-    { name: 'NOW Sport', category: 'Sports', badge: 'HD' },
-    { name: 'Discovery Channel', category: 'Entertainment', badge: '4K' },
+    { name: 'BBC One UK HD', category: 'UK TV', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=bbc.co.uk&sz=128' },
+    { name: 'BBC Two UK', category: 'UK TV', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=bbc.co.uk&sz=128' },
+    { name: 'ITV1 HD', category: 'UK TV', badge: 'HD', logo: 'https://images.seeklogo.com/logo-png/45/2/itv1-logo-png_seeklogo-458202.png' },
+    { name: 'Channel 4 HD', category: 'UK TV', badge: 'HD', logo: 'https://i0.wp.com/www.seenit.co.uk/wp-content/uploads/Channel_4_Logo_Green-2.jpg?resize=1200%2C675&ssl=1' },
+    { name: 'Sky Sports Main Event', category: 'Sports', badge: '4K', logo: 'https://www.google.com/s2/favicons?domain=sky.com&sz=128' },
+    { name: 'Sky Sports Premier League', category: 'Sports', badge: '4K', logo: 'https://www.google.com/s2/favicons?domain=sky.com&sz=128' },
+    { name: 'TNT Sports', category: 'Sports', badge: 'HD', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe40vtE2AHgtyk-uz8ncZFa8yxYrf6Z5d91ggvDrF9Mw&s=10' },
+    { name: 'beIN Sports', category: 'Sports', badge: 'HD', logo: 'https://sensefrance.fr/wp-content/uploads/logo-bein-sport-et-free-cote-a-cote.webp' },
+    { name: 'Eurosport 1', category: 'Sports', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=eurosport.com&sz=128' },
+    { name: 'Sportitalia HD', category: 'Sports', badge: 'HD', logo: 'https://play-lh.googleusercontent.com/zFPHigI8l5v42ToIW88GatyY49SC4ohu_8lJcIFIz2GGqevVeSsNS41K_EARp1oJcYOwrSgQmiFq0JrhbbmqFw' },
+    { name: 'ESPN US Sports', category: 'Sports', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=espn.com&sz=128' },
+    { name: 'DAZN Sports', category: 'Sports', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=dazn.com&sz=128' },
+    { name: 'Fox News', category: 'News', badge: 'HD', logo: 'https://www.tvbeurope.com/wp-content/uploads/2019/01/fox-news-logo.jpg' },
+    { name: 'CNN International', category: 'News', badge: 'HD', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/66/CNN_International_logo.svg' },
+    { name: 'NBC News', category: 'News', badge: 'HD', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYRXwKJX9xo3ADjLUwebHaoliiQ_NkozQ_psr9ogxSm1HKXq4bxIj6G1g&s=10' },
+    { name: 'Netflix Premium', category: 'VIP Streaming', badge: 'VIP', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrejjNX8_J7UvEbpAJd5ibayukDSuyGmDk-pMYrYkaew&s=10' },
+    { name: 'Disney+ Cinema', category: 'VIP Streaming', badge: 'VIP', logo: 'https://yt3.googleusercontent.com/HBNZiS5QKb-Mc5_n7Q8_wOH-t3VI_jPPcO8uwE0dMgAjff7Pf0VZ4h_EBugzRCt059QJnIPDpg=s900-c-k-c0x00ffffff-no-rj' },
+    { name: 'Apple TV+', category: 'VIP Streaming', badge: 'VIP', logo: 'https://www.google.com/s2/favicons?domain=tv.apple.com&sz=128' },
+    { name: 'Prime Video 4K', category: 'VIP Streaming', badge: 'VIP', logo: 'https://m.media-amazon.com/images/I/61sDr8btlTL.png' },
+    { name: 'HBO Max Gold', category: 'VIP Streaming', badge: 'VIP', logo: 'https://i.pinimg.com/564x/27/7f/21/277f21068549680e0daaddab0dcf975f.jpg' },
+    { name: 'Paramount+', category: 'VIP Streaming', badge: 'VIP', logo: 'https://store-images.s-microsoft.com/image/apps.35768.9007199266243596.ad78eadf-f174-4f68-8c73-562e5c227afa.9171eaf0-5404-436f-803e-5f420e055b0e' },
+    { name: 'Showtime PPV', category: 'PPV', badge: 'PPV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Showtime.svg/250px-Showtime.svg.png' },
+    { name: 'TNT Sports PPV', category: 'PPV', badge: 'PPV', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe40vtE2AHgtyk-uz8ncZFa8yxYrf6Z5d91ggvDrF9Mw&s=10' },
+    { name: 'UFC Fight Pass', category: 'PPV', badge: 'PPV', logo: 'https://i.pinimg.com/564x/d0/c4/7d/d0c47da28d97db1358dc84bb098d67ca.jpg' },
+    { name: 'Sky Sport Box Office', category: 'PPV', badge: 'PPV', logo: 'https://www.google.com/s2/favicons?domain=sky.com&sz=128' },
+    { name: 'Mediaset Infinity', category: 'Entertainment', badge: 'HD', logo: 'https://play-lh.googleusercontent.com/nuvCOFbJklXgPHAoDqPD5PKoUBm1b07mj-l8IcNMIx3yBSuEXZqRK37pHvxiGwrN5A' },
+    { name: 'NOW Sport', category: 'Sports', badge: 'HD', logo: 'https://www.google.com/s2/favicons?domain=nowtv.com&sz=128' },
+    { name: 'Discovery Channel', category: 'Entertainment', badge: '4K', logo: 'https://www.google.com/s2/favicons?domain=discovery.com&sz=128' },
   ];
 
   const SITE_FILMS = [
-    { title: 'Black Mirror', year: 2025, duration: 'Season 7', genre: 'Sci-Fi' },
-    { title: 'Pressure', year: 2025, duration: '1h 52m', genre: 'Thriller' },
-    { title: 'The Odyssey', year: 2025, duration: '2h 46m', genre: 'Adventure' },
-    { title: 'The Amazing Digital Circus', year: 2024, duration: '1h 30m', genre: 'Animation' },
-    { title: 'Your Fault: London', year: 2025, duration: '2h 05m', genre: 'Romance' },
-    { title: 'How to Make a Killing', year: 2025, duration: '1h 45m', genre: 'Crime' },
-    { title: 'In the Grey', year: 2026, duration: '2h 08m', genre: 'Action' },
-    { title: 'Legends', year: 2026, duration: '6 Episodes', genre: 'Crime' },
-    { title: 'The Last House', year: 2026, duration: '1h 50m', genre: 'Sci-Fi' },
-    { title: "Clarkson's Farm", year: 2025, duration: 'Season 4', genre: 'Documentary' },
-    { title: 'Tip Toe', year: 2026, duration: 'Mini-Series', genre: 'Thriller' },
-    { title: 'Shelter', year: 2026, duration: '1h 47m', genre: 'Action' },
-    { title: 'The Witness', year: 2026, duration: 'Mini-Series', genre: 'Crime' },
-    { title: 'Half Man', year: 2026, duration: '6 Episodes', genre: 'Drama' },
+    { title: 'Black Mirror', year: 2025, duration: 'Season 7', genre: 'Sci-Fi', image: 'https://media.themoviedb.org/t/p/w300_and_h450_face/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg' },
+    { title: 'Pressure', year: 2025, duration: '1h 52m', genre: 'Thriller', image: 'https://images.contentstack.io/v3/assets/blt223a4a92692ca457/blt894aaac05ce45f74/69d6e086e583e66086f06ba4/T4108_Pressure_Digital_1sht_1080x1600.jpg?branch=production&width=1080' },
+    { title: 'The Odyssey', year: 2025, duration: '2h 46m', genre: 'Adventure', image: 'https://m.media-amazon.com/images/M/MV5BOGZkZGQ3MDgtNjJkYy00ZDFlLThmN2ItYWEzNGE2MTdmYmE4XkEyXkFqcGc@._V1_.jpg' },
+    { title: 'The Amazing Digital Circus', year: 2024, duration: '1h 30m', genre: 'Animation', image: 'https://m.media-amazon.com/images/M/MV5BMTlkY2NjODgtOWI5ZC00MjIzLWFiYjItN2ZiOTU5YzA2ODlmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg' },
+    { title: 'Your Fault: London', year: 2025, duration: '2h 05m', genre: 'Romance', image: 'https://m.media-amazon.com/images/M/MV5BNzI2YmMxZWItNjlhOS00ODNmLWEzYjQtYWIyNjc0ZTQwOTZlXkEyXkFqcGc@._V1_.jpg' },
+    { title: 'How to Make a Killing', year: 2025, duration: '1h 45m', genre: 'Crime', image: 'https://m.media-amazon.com/images/M/MV5BOTkwY2JjMWYtOGU4YS00ZTg0LWIzYzUtZDkxNDE5NWNkNWM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg' },
+    { title: 'In the Grey', year: 2026, duration: '2h 08m', genre: 'Action', image: 'https://media.themoviedb.org/t/p/w300_and_h450_face/dQgIcW6Th08kMRf2HBoYWoFE6OD.jpg' },
+    { title: 'Legends', year: 2026, duration: '6 Episodes', genre: 'Crime', image: 'https://upload.wikimedia.org/wikipedia/en/6/66/Legends_2026_TV_series_poster.jpeg' },
+    { title: 'The Last House', year: 2026, duration: '1h 50m', genre: 'Sci-Fi', image: 'https://upload.wikimedia.org/wikipedia/en/b/b2/The_Last_House_poster.jpg' },
+    { title: "Clarkson's Farm", year: 2025, duration: 'Season 4', genre: 'Documentary', image: "https://upload.wikimedia.org/wikipedia/en/a/a0/Clarkson%27s_Farm_Title_Card.jpg" },
+    { title: 'Tip Toe', year: 2026, duration: 'Mini-Series', genre: 'Thriller', image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Shelter', year: 2026, duration: '1h 47m', genre: 'Action', image: 'https://media.themoviedb.org/t/p/w300_and_h450_face/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg' },
+    { title: 'The Witness', year: 2026, duration: 'Mini-Series', genre: 'Crime', image: 'https://media.themoviedb.org/t/p/w300_and_h450_face/6vW1V7qejXv4QI2TvWvYuowfTrU.jpg' },
+    { title: 'Half Man', year: 2026, duration: '6 Episodes', genre: 'Drama', image: 'https://upload.wikimedia.org/wikipedia/en/9/93/Half_Man_Release_Poster.jpg' },
   ];
 
   // Filter media based on search query or selected genre
@@ -848,13 +847,18 @@ export default function App() {
                       </h3>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                         {filteredChannels.map((ch, i) => (
-                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl p-3 flex flex-col gap-2">
-                            <div className="flex items-center justify-between">
-                              <span className={`text-[9px] font-display font-black uppercase px-2 py-0.5 rounded-full ${ch.badge === 'VIP' ? 'bg-yellow-400/20 text-yellow-400' : ch.badge === 'PPV' ? 'bg-red-500/20 text-red-400' : ch.badge === '4K' ? 'bg-purple-500/20 text-purple-300' : 'bg-slate-800 text-slate-400'}`}>{ch.badge}</span>
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl overflow-hidden flex flex-col">
+                            <div className="flex items-center justify-center bg-[#0d0014]/60 h-20 p-3">
+                              <img src={ch.logo} alt={ch.name} className="max-h-14 max-w-full object-contain" referrerPolicy="no-referrer" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
                             </div>
-                            <p className="text-white font-display font-bold text-xs leading-tight">{ch.name}</p>
-                            <p className="text-[10px] text-slate-500 font-sans">{ch.category}</p>
+                            <div className="p-2.5 flex flex-col gap-1">
+                              <div className="flex items-center justify-between">
+                                <span className={`text-[9px] font-display font-black uppercase px-1.5 py-0.5 rounded-full ${ch.badge === 'VIP' ? 'bg-yellow-400/20 text-yellow-400' : ch.badge === 'PPV' ? 'bg-red-500/20 text-red-400' : ch.badge === '4K' ? 'bg-purple-500/20 text-purple-300' : 'bg-slate-800 text-slate-400'}`}>{ch.badge}</span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                              </div>
+                              <p className="text-white font-display font-bold text-xs leading-tight">{ch.name}</p>
+                              <p className="text-[10px] text-slate-500 font-sans">{ch.category}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -870,13 +874,16 @@ export default function App() {
                       </h3>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                         {filteredFilms.map((film, i) => (
-                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl p-3 flex flex-col gap-2">
-                            <div className="flex items-center justify-between">
-                              <span className="text-[9px] font-display font-black uppercase px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">{film.genre}</span>
-                              <span className="text-[9px] text-slate-500 font-sans">{film.year}</span>
+                          <div key={i} className="bg-[#1a0533]/60 border border-purple-900/30 rounded-xl overflow-hidden flex flex-col">
+                            <div className="relative aspect-[2/3] bg-[#0d0014]">
+                              <img src={film.image} alt={film.title} className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
+                              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0014] via-transparent to-transparent" />
+                              <span className="absolute top-2 left-2 text-[9px] font-display font-black uppercase px-1.5 py-0.5 rounded-full bg-purple-500/80 text-white">{film.genre}</span>
                             </div>
-                            <p className="text-white font-display font-bold text-xs leading-tight">{film.title}</p>
-                            <p className="text-[10px] text-slate-500 font-sans">{film.duration}</p>
+                            <div className="p-2.5 space-y-0.5">
+                              <p className="text-white font-display font-bold text-xs leading-tight">{film.title}</p>
+                              <p className="text-[10px] text-slate-500 font-sans">{film.duration} • {film.year}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
