@@ -602,12 +602,11 @@ export default function App() {
                           {[...channels, ...channels, ...channels].map((chan, idx) => (
                             <div
                               key={`${uid}-${idx}`}
-                              className="flex-shrink-0 flex items-center justify-center gap-3 py-3.5 px-4 rounded-2xl border border-slate-200 bg-transparent"
+                              className="flex-shrink-0 flex items-center justify-center py-3 px-4 rounded-2xl border border-slate-200 bg-transparent"
                             >
                               {chan.logo && (
-                                <img src={chan.logo} alt={chan.name} className="w-10 h-10 rounded-xl object-contain flex-shrink-0" referrerPolicy="no-referrer" />
+                                <img src={chan.logo} alt={chan.name} className="w-10 h-10 rounded-xl object-contain" referrerPolicy="no-referrer" />
                               )}
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                             </div>
                           ))}
                         </div>
