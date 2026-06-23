@@ -632,7 +632,6 @@ export default function App() {
                                 <div className="flex items-center gap-3 px-1">
                                   <span className="text-[9px] font-display tracking-widest text-purple-600 font-bold uppercase">{row.label}</span>
                                   <div className="flex-1 h-px bg-purple-200" />
-                                  <span className="text-[8px] font-display text-slate-400 uppercase tracking-wide">{row.label === 'VIP STREAMING' ? '🔵 Streaming' : '🔴 Live Events'}</span>
                                 </div>
                                 {renderMarqueeRow(row.channels, row.dir, `g${gIdx}r${rIdx}`)}
                               </div>
