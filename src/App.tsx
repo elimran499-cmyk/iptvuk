@@ -619,14 +619,14 @@ export default function App() {
                     return (
                       <div className="space-y-6" id="logos-categories-deck">
                         {ALL_GROUPS.map((group, gIdx) => (
-                          <div key={gIdx} className="rounded-2xl border border-slate-200/20 bg-white p-5 space-y-4">
-                            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                          <div key={gIdx} className="rounded-2xl border border-purple-800/40 bg-transparent p-5 space-y-4">
+                            <div className="flex items-center justify-between border-b border-purple-900/30 pb-3">
                               <div>
-                                <span className="text-[9px] font-display tracking-widest text-purple-600 font-bold uppercase block">{group.groupSub}</span>
-                                <h4 className="text-slate-900 font-display font-bold text-base mt-0.5">{group.groupTitle}</h4>
+                                <span className="text-[9px] font-display tracking-widest text-[#EAB308] font-bold uppercase block">{group.groupSub}</span>
+                                <h4 className="text-white font-display font-bold text-base mt-0.5">{group.groupTitle}</h4>
                               </div>
-                              <span className="text-[9px] font-mono text-emerald-600 flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              <span className="text-[9px] font-display text-emerald-400 flex items-center gap-1.5 bg-emerald-950/40 border border-emerald-900/40 px-2.5 py-1 rounded-full">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                                 LIVE
                               </span>
                             </div>
