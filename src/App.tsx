@@ -599,7 +599,7 @@ export default function App() {
                     const renderMarqueeRow = (channels: ChanItem[], dir: 'left' | 'right', uid: string) => (
                       <div className="w-full overflow-hidden relative py-1" id={`mq-${uid}`}>
                         <div className={`flex gap-3 w-max py-1 ${dir === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}>
-                          {[...channels, ...channels, ...channels].map((chan, idx) => (
+                          {[...channels, ...channels, ...channels, ...channels].map((chan, idx) => (
                             <div
                               key={`${uid}-${idx}`}
                               className="flex-shrink-0 flex items-center justify-center py-3 px-4 rounded-2xl border border-slate-200 bg-transparent"
@@ -670,7 +670,7 @@ export default function App() {
                       </div>
                       <div className="w-full overflow-hidden relative py-1">
                         <div className="flex gap-4 w-max animate-marquee-films pb-3">
-                          {[...UK_FILMS, ...UK_FILMS, ...UK_FILMS].map((film, idx) => (
+                          {[...UK_FILMS, ...UK_FILMS, ...UK_FILMS, ...UK_FILMS].map((film, idx) => (
                             <div
                               key={idx}
                               className="group flex-shrink-0 w-[185px] bg-[#2A2325] border border-white/10 rounded-2xl overflow-hidden shadow-xl"
