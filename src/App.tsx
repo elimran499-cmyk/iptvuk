@@ -598,8 +598,6 @@ export default function App() {
                     type ChanItem = { name: string; badge: string; logo?: string };
                     const renderMarqueeRow = (channels: ChanItem[], dir: 'left' | 'right', uid: string) => (
                       <div className="w-full overflow-hidden relative py-1" id={`mq-${uid}`}>
-                        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-dark-deep via-dark-deep/50 to-transparent z-10 pointer-events-none" />
-                        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-deep via-dark-deep/50 to-transparent z-10 pointer-events-none" />
                         <div className={`flex gap-3 w-max py-1 ${dir === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}>
                           {[...channels, ...channels, ...channels].map((chan, idx) => (
                             <div
@@ -669,8 +667,6 @@ export default function App() {
                         <h2 className="text-white font-display text-3xl tracking-tight">Trending in UK</h2>
                       </div>
                       <div className="w-full overflow-hidden relative py-1">
-                        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-dark-deep via-dark-deep/50 to-transparent z-10 pointer-events-none" />
-                        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-deep via-dark-deep/50 to-transparent z-10 pointer-events-none" />
                         <div className="flex gap-4 w-max animate-marquee-left pb-3">
                           {[...UK_FILMS, ...UK_FILMS, ...UK_FILMS].map((film, idx) => (
                             <div
