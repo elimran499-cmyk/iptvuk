@@ -669,7 +669,7 @@ export default function App() {
                         <h2 className="text-white font-display text-3xl tracking-tight">Trending in UK</h2>
                       </div>
                       <div className="w-full overflow-hidden relative py-1">
-                        <div className="flex gap-4 w-max animate-marquee-left pb-3">
+                        <div className="flex gap-4 w-max animate-marquee-films pb-3">
                           {[...UK_FILMS, ...UK_FILMS, ...UK_FILMS].map((film, idx) => (
                             <div
                               key={idx}
