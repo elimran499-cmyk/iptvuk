@@ -369,7 +369,7 @@ export default function App() {
                       </div>
                       <div>
                         <h4 className="text-[#EAB308] font-display font-extrabold text-base">24/7</h4>
-                        <p className="text-[10px] uppercase tracking-wider font-mono text-[#C4B5FD]">Human Support</p>
+                        <p className="text-[10px] uppercase tracking-wider font-display text-[#C4B5FD]">Human Support</p>
                       </div>
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export default function App() {
                       
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-[8px] font-mono tracking-widest text-[#EAB308] uppercase block font-semibold">IPTV UK — PREMIUM</span>
+                          <span className="text-[8px] font-display tracking-widest text-[#EAB308] uppercase block font-semibold">IPTV UK — PREMIUM</span>
                           <h3 className="text-white font-display font-bold text-lg">Global Entertainment</h3>
                         </div>
                         <div className="w-8 h-8 rounded-full bg-[#2A2325] border border-slate-800 flex items-center justify-center text-primary shadow">
@@ -628,7 +628,7 @@ export default function App() {
                           <div key={gIdx} className="rounded-2xl border border-slate-800/60 bg-[#1E1820]/60 p-5 space-y-4">
                             <div className="flex items-center justify-between border-b border-white/5 pb-3">
                               <div>
-                                <span className="text-[9px] font-mono tracking-widest text-[#EAB308] font-bold uppercase block">{group.groupSub}</span>
+                                <span className="text-[9px] font-display tracking-widest text-[#EAB308] font-bold uppercase block">{group.groupSub}</span>
                                 <h4 className="text-white font-display font-bold text-base mt-0.5">{group.groupTitle}</h4>
                               </div>
                               <span className="text-[9px] font-mono text-emerald-400 flex items-center gap-1.5 bg-emerald-950/40 border border-emerald-900/40 px-2.5 py-1 rounded-full">
@@ -671,7 +671,7 @@ export default function App() {
                   return (
                     <div className="space-y-5 pt-4" id="uk-trending-hub">
                       <div className="border-b border-white/10 pb-3">
-                        <span className="text-[10px] font-mono tracking-widest text-[#7C3AED] font-bold uppercase block">UK BOX OFFICE</span>
+                        <span className="text-[10px] font-display tracking-widest text-[#7C3AED] font-bold uppercase block">UK BOX OFFICE</span>
                         <h2 className="text-white font-display text-3xl tracking-tight">Trending in UK</h2>
                       </div>
                       <div className="w-full overflow-hidden relative py-1">
