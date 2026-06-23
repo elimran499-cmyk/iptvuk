@@ -604,17 +604,11 @@ export default function App() {
                           {[...channels, ...channels, ...channels].map((chan, idx) => (
                             <div
                               key={`${uid}-${idx}`}
-                              className="flex-shrink-0 flex items-center justify-between gap-4 py-3.5 px-4 rounded-2xl border border-slate-800/80 shadow-lg w-[220px] bg-dark-bg/80 backdrop-blur-md"
+                              className="flex-shrink-0 flex items-center justify-center gap-3 py-3.5 px-4 rounded-2xl border border-slate-800/80 shadow-lg bg-dark-bg/80 backdrop-blur-md"
                             >
-                              <div className="flex items-center gap-2.5 min-w-0">
-                                {chan.logo && (
-                                  <img src={chan.logo} alt={chan.name} className="w-7 h-7 rounded-lg object-contain flex-shrink-0" referrerPolicy="no-referrer" />
-                                )}
-                                <div className="min-w-0">
-                                  <h5 className="text-xs font-bold font-sans tracking-tight text-white leading-none truncate">{chan.name}</h5>
-                                  <span className="text-[8px] font-mono tracking-wider font-semibold text-[#EAB308] opacity-90 uppercase block mt-1">{chan.badge}</span>
-                                </div>
-                              </div>
+                              {chan.logo && (
+                                <img src={chan.logo} alt={chan.name} className="w-10 h-10 rounded-xl object-contain flex-shrink-0" referrerPolicy="no-referrer" />
+                              )}
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                             </div>
                           ))}
@@ -805,7 +799,7 @@ export default function App() {
                                   ))}
                                 </div>
                                 <a
-                                  href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nView plan: ${window.location.origin + window.location.pathname}#plan-${plan.id}-${pricingTier}-${selectedScreens}s\n\nPlease confirm and send payment details. Thank you!`)}`}
+                                  href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
@@ -1358,7 +1352,7 @@ export default function App() {
 
                           {/* CTA */}
                           <a
-                            href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nView plan: ${window.location.origin + window.location.pathname}#plan-${plan.id}-${pricingTier}-${selectedScreens}s\n\nPlease confirm and send payment details. Thank you!`)}`}
+                            href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
