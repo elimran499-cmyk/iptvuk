@@ -108,7 +108,7 @@ export default function DeviceGuides() {
           </div>
         </div>
         <a
-          href="https://wa.me/447449708976?text=Hello!%20I%20need%20help%20setting%20up%20IPTV%20UK%20on%20my%20device."
+          href="https://wa.me/447832486269?text=Hello!%20I%20need%20help%20setting%20up%20IPTV%20UK%20on%20my%20device."
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-display font-bold text-xs py-2 px-5 rounded-full shadow-md hover:scale-105 transition-all cursor-pointer shrink-0"

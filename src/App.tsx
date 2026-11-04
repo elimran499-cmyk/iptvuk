@@ -797,7 +797,7 @@ export default function App() {
                                   ))}
                                 </div>
                                 <a
-                                  href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
+                                  href={`https://wa.me/447832486269?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
@@ -1350,7 +1350,7 @@ export default function App() {
 
                           {/* CTA */}
                           <a
-                            href={`https://wa.me/447449708976?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
+                            href={`https://wa.me/447832486269?text=${encodeURIComponent(`Hello! I'd like to order the following plan:\n\nPlan: ${plan.label}\nDuration: ${plan.duration}\nScreens: ${selectedScreens}\nPrice: €${plan.price.toFixed(2)}\n\nPlease confirm and send payment details. Thank you!`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer text-center block ${isVip ? 'bg-purple-700 hover:bg-purple-800 text-white shadow-xl shadow-purple-700/30' : plan.featured ? 'bg-slate-900 text-white hover:bg-black shadow-xl' : 'bg-slate-900 text-white hover:bg-black'}`}
@@ -1437,7 +1437,7 @@ export default function App() {
               </div>
               <p className="text-slate-500 text-xs leading-relaxed font-sans">Premium IPTV streaming with 85,000+ live channels and 200,000+ VOD titles in 4K Ultra HD.</p>
               <a
-                href="https://wa.me/447449708976"
+                href="https://wa.me/447832486269"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-display font-bold text-xs px-4 py-2 rounded-full transition-all hover:scale-105"
@@ -1482,7 +1482,7 @@ export default function App() {
                   Support 24/7
                 </li>
                 <li>
-                  <a href="https://wa.me/447449708976" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 transition-colors">+44 7449 708976</a>
+                  <a href="https://wa.me/447832486269" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 transition-colors">+44 7832 486269</a>
                 </li>
                 <li className="text-slate-400">Response within minutes</li>
               </ul>
@@ -1529,7 +1529,7 @@ export default function App() {
 
       {/* FLOATING WHATSAPP BUTTON */}
       <a
-        href="https://wa.me/447449708976?text=Hello!%20I%20would%20like%20to%20get%20more%20information%20about%20IPTV%20UK%20plans."
+        href="https://wa.me/447832486269?text=Hello!%20I%20would%20like%20to%20get%20more%20information%20about%20IPTV%20UK%20plans."
         target="_blank"
         rel="noopener noreferrer"
         title="Chat on WhatsApp"
