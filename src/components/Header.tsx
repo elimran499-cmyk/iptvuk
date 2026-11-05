@@ -36,7 +36,7 @@ export default function Header({
         <span className="hidden sm:block text-yellow-600 text-xs">|</span>
         <span className="text-[10px] font-mono text-yellow-900 font-black tracking-wide">12 + 3 MONTHS FREE</span>
         <a
-          href="https://wa.me/447832486269"
+          href="https://wa.me/447449708976"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-yellow-950 hover:bg-yellow-900 text-yellow-300 font-black text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md hover:scale-105 transition-transform cursor-pointer inline-block"
